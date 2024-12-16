@@ -13,4 +13,4 @@ Install the NuGet package [Sowa705.ColorKit](https://www.nuget.org/packages/Sowa
 
 ## License
 
-MIT, refer to `README.md`
+MIT, refer to `LICENSE.md`
