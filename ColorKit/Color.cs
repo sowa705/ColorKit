@@ -45,6 +45,10 @@ public struct Color
         {
             xyzcolor = ColorSpaceConverters.LinearDisplayP3ToFloatCieXyz(startcolor);
         }
+        if (ColorSpace == ColorSpace.REC2020)
+        {
+            xyzcolor = ColorSpaceConverters.LinearREC2020ToFloatCieXyz(startcolor);
+        }
         if (ColorSpace == ColorSpace.CIEXYZ)
         {
             xyzcolor = startcolor;
@@ -61,7 +65,10 @@ public struct Color
         {
             finalcolor = ColorSpaceConverters.FloatCieXyzToLinearDisplayP3(xyzcolor);
         }
-
+        if (ColorSpace == ColorSpace.REC2020)
+        {
+            xyzcolor = ColorSpaceConverters.FloatCieXyzToLinearREC2020(startcolor);
+        }
         if (colorSpace == ColorSpace.CIEXYZ)
         {
             finalcolor = xyzcolor;

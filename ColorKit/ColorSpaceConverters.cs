@@ -32,6 +32,20 @@ internal static class ColorSpaceConverters
         {  0.0193339f,  0.1191920f,  0.9503041f }
     };
 
+    private static readonly float[,] MatREC2020 = new float[,]
+    {
+        {  1.716651187f, -0.355670783f, -0.253366281f },
+        { -0.666684351f,  1.616481236f,  0.015768545f },
+        {  0.017639857f, -0.042770613f,  0.942103121f }
+    };
+
+    private static readonly float[,] MatREC2020Inverse = new float[,]
+    {
+        {  0.636958048f,  0.144616916f,  0.168880975f },
+        {  0.262700212f,  0.677998071f,  0.059301718f },
+        {  0.000000000f,  0.028072693f,  1.060985057f }
+    };
+
     public static Vector3 FloatCieXyzToLinearDisplayP3(Vector3 color)
     {
         return TransformColor(color, MatP3);
@@ -50,6 +64,16 @@ internal static class ColorSpaceConverters
     public static Vector3 LinearsRGBToFloatCieXyz(Vector3 color)
     {
         return TransformColor(color, MatSRGBInverse);
+    }
+
+    public static Vector3 FloatCieXyzToLinearREC2020(Vector3 color)
+    {
+        return TransformColor(color, MatREC2020);
+    }
+
+    public static Vector3 LinearREC2020ToFloatCieXyz(Vector3 color)
+    {
+        return TransformColor(color, MatREC2020Inverse);
     }
 
     private static Vector3 TransformColor(Vector3 color, float[,] matrix)

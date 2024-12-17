@@ -5,7 +5,7 @@ Simple color manipulation library for modern .NET
 ## Features
 
 - Linear / 2.2 gamma conversions
-- Display P3 / sRGB / CIEXYZ color space conversion
+- Display P3 / REC.2020 / sRGB / CIEXYZ color space conversion
 
 ## Installation
 
